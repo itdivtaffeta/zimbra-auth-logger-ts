@@ -96,7 +96,8 @@ const getPrettyLogs = async () => {
 
   try {
     const { stdout, stderr } = await exec("perl ./scripts/login_checkers.pl", {
-      maxBuffer: 1024 * 10000,
+      // maxBuffer 2 GB
+      maxBuffer: 2 * 1024 * 1024 * 1024,
     });
 
     if (stderr) {
