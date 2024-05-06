@@ -23,7 +23,8 @@ const env: IEnv = {
 
 const checkEnvValue = () => {
   for (const key in env) {
-    if (!env[key]) {
+    // if env undefined or empty
+    if (env[key] === undefined || env[key] === "") {
       throw new Error(`Missing env var: ${key}`);
     }
   }
